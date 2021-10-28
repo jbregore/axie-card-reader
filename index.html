@@ -1,0 +1,479 @@
+<html>
+
+<head>
+    <title>Card Reader</title>
+    <link rel="shortcut icon" href="./img/axie-full-transparent (1).ico">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            background-image: url('./img/6329157\ \(1\).jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        
+        .frontline {
+            padding: 35px;
+            width: 140px;
+        }
+        
+        .midline {
+            padding: 35px;
+            width: 140px;
+        }
+        
+        .backline {
+            padding: 35px;
+            width: 140px;
+        }
+        
+        .fskill,
+        .sskill,
+        .tskill,
+        .lskill {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 140px;
+            height: 95px;
+            border-radius: 10px;
+        }
+        
+        .fskill {
+            border: 3px solid #00B1B0;
+        }
+        
+        .sskill {
+            border: 3px solid #A06AB4;
+        }
+        
+        .tskill {
+            border: 3px solid #32CD30;
+        }
+        
+        .lskill {
+            border: 3px solid #FFD743;
+        }
+        
+        .fskill p,
+        .sskill p,
+        .tskill p,
+        .lskill p {
+            font-size: 18px;
+            font-family: "Poppins", sans-serif;
+            color: #555;
+        }
+        
+        .fskill span,
+        .sskill span,
+        .tskill span,
+        .lskill span {
+            font-size: 24px;
+            font-family: "Poppins", sans-serif;
+            color: #555;
+            padding: 20px 20px 10px 20px;
+            background-color: antiquewhite;
+            margin-bottom: -25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="margin:80px auto;
+        background-color: #fff;width: 80%;min-height: 70vh;padding-top: 40px;
+        padding-bottom: 40px; border-radius: 30px;">
+        <div style="text-align: center;">
+            <img src="img/title.png" style="width:300px;margin-top: -100px;" />
+        </div>
+        <div class="container">
+            <!-- frontline -->
+            <div class="row m-4" id="frontline-div">
+                <div class="col-sm">
+                    <button type="button" class="btn btn-secondary frontline" onclick="$('#frontline-div').attr('style', 'display:none;')">
+                        Frontline
+                    </button>
+                </div>
+                <div class="col-sm">
+                    <div class="fskill">
+                        <span id="f_1st_card">0</span></br>
+                        <p>1st card</p>
+                    </div>
+                    <div style="text-align: center;width: 140px;">
+                        <input type="checkbox" onchange='frontlineFirstCard(this);'>
+                        <input type="checkbox" onchange='frontlineFirstCard(this);'>
+                        <input type="checkbox" onchange='frontlineFirstCard(this);'>
+                        <input type="checkbox" onchange='frontlineFirstCard(this);'>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="sskill">
+                        <span id="f_2nd_card">0</span></br>
+                        <p>2nd card</p>
+                    </div>
+                    <div style="text-align: center;width: 140px;">
+                        <input type="checkbox" onchange='frontlineSecondCard(this);'>
+                        <input type="checkbox" onchange='frontlineSecondCard(this);'>
+                        <input type="checkbox" onchange='frontlineSecondCard(this);'>
+                        <input type="checkbox" onchange='frontlineSecondCard(this);'>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="tskill">
+                        <span id="f_3rd_card">0</span></br>
+                        <p>3rd card</p>
+                    </div>
+                    <div style="text-align: center;width: 140px;">
+                        <input type="checkbox" onchange='frontlineThirdCard(this);'>
+                        <input type="checkbox" onchange='frontlineThirdCard(this);'>
+                        <input type="checkbox" onchange='frontlineThirdCard(this);'>
+                        <input type="checkbox" onchange='frontlineThirdCard(this);'>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="lskill">
+                        <span id="f_4th_card">0</span></br>
+                        <p>4th card</p>
+                    </div>
+                    <div style="text-align: center;width: 140px;">
+                        <input type="checkbox" onchange='frontlineFourthCard(this);'>
+                        <input type="checkbox" onchange='frontlineFourthCard(this);'>
+                        <input type="checkbox" onchange='frontlineFourthCard(this);'>
+                        <input type="checkbox" onchange='frontlineFourthCard(this);'>
+                    </div>
+                </div>
+            </div>
+
+            <!-- midline -->
+            <div class="row m-4" id="midline-div">
+                <div class="col-sm">
+                    <button type="button" class="btn btn-success midline" onclick="$('#midline-div').attr('style', 'display:none;')">
+                        Midline
+                    </button>
+                </div>
+                <div class="col-sm">
+                    <div class="fskill">
+                        <span id="m_1st_card">0</span></br>
+                        <p>1st card</p>
+                    </div>
+                    <div style="text-align: center;width: 140px;">
+                        <input type="checkbox" onchange='midlineFirstCard(this);'>
+                        <input type="checkbox" onchange='midlineFirstCard(this);'>
+                        <input type="checkbox" onchange='midlineFirstCard(this);'>
+                        <input type="checkbox" onchange='midlineFirstCard(this);'>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="sskill">
+                        <span id="m_2nd_card">0</span></br>
+                        <p>2nd card</p>
+                    </div>
+                    <div style="text-align: center;width: 140px;">
+                        <input type="checkbox" onchange='midlineSecondCard(this);'>
+                        <input type="checkbox" onchange='midlineSecondCard(this);'>
+                        <input type="checkbox" onchange='midlineSecondCard(this);'>
+                        <input type="checkbox" onchange='midlineSecondCard(this);'>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="tskill">
+                        <span id="m_3rd_card">0</span></br>
+                        <p>3rd card</p>
+                    </div>
+                    <div style="text-align: center;width: 140px;">
+                        <input type="checkbox" onchange='midlineThirdCard(this);'>
+                        <input type="checkbox" onchange='midlineThirdCard(this);'>
+                        <input type="checkbox" onchange='midlineThirdCard(this);'>
+                        <input type="checkbox" onchange='midlineThirdCard(this);'>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="lskill">
+                        <span id="m_4th_card">0</span></br>
+                        <p>4th card</p>
+                    </div>
+                    <div style="text-align: center;width: 140px;">
+                        <input type="checkbox" onchange='midlineFourthCard(this);'>
+                        <input type="checkbox" onchange='midlineFourthCard(this);'>
+                        <input type="checkbox" onchange='midlineFourthCard(this);'>
+                        <input type="checkbox" onchange='midlineFourthCard(this);'>
+                    </div>
+                </div>
+            </div>
+
+            <!-- backline -->
+            <div class="row m-4" id="backline-div">
+                <div class="col-sm">
+                    <button type="button" class="btn btn-warning backline" onclick="$('#backline-div').attr('style', 'display:none;')">
+                        Backline
+                    </button>
+                </div>
+                <div class="col-sm">
+                    <div class="fskill">
+                        <span id="b_1st_card">0</span></br>
+                        <p>1st card</p>
+                    </div>
+                    <div style="text-align: center;width: 140px;">
+                        <input type="checkbox" onchange='backlineFirstCard(this);'>
+                        <input type="checkbox" onchange='backlineFirstCard(this);'>
+                        <input type="checkbox" onchange='backlineFirstCard(this);'>
+                        <input type="checkbox" onchange='backlineFirstCard(this);'>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="sskill">
+                        <span id="b_2nd_card">0</span></br>
+                        <p>2nd card</p>
+                    </div>
+                    <div style="text-align: center;width: 140px;">
+                        <input type="checkbox" onchange='backlineSecondCard(this);'>
+                        <input type="checkbox" onchange='backlineSecondCard(this);'>
+                        <input type="checkbox" onchange='backlineSecondCard(this);'>
+                        <input type="checkbox" onchange='backlineSecondCard(this);'>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="tskill">
+                        <span id="b_3rd_card">0</span></br>
+                        <p>3rd card</p>
+                    </div>
+                    <div style="text-align: center;width: 140px;">
+                        <input type="checkbox" onchange='backlineThirdCard(this);'>
+                        <input type="checkbox" onchange='backlineThirdCard(this);'>
+                        <input type="checkbox" onchange='backlineThirdCard(this);'>
+                        <input type="checkbox" onchange='backlineThirdCard(this);'>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="lskill">
+                        <span id="b_4th_card">0</span></br>
+                        <p>4th card</p>
+                    </div>
+                    <div style="text-align: center;width: 140px;">
+                        <input type="checkbox" onchange='backlineFourthCard(this);'>
+                        <input type="checkbox" onchange='backlineFourthCard(this);'>
+                        <input type="checkbox" onchange='backlineFourthCard(this);'>
+                        <input type="checkbox" onchange='backlineFourthCard(this);'>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container">
+            <div class="row" style="padding-left: 40px;padding-right: 40px;">
+                <div class="col ">
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Energy left</span>
+                        </div>
+                        <input type="text" aria-label="previous energy" class="form-control">
+                        <input type="text" aria-label="total energy" class="form-control" placeholder="Scratch">
+                    </div>
+
+                    <div style="margin-top: 20px;">
+                        <button type="button" class="btn btn-success" id="calculate">Calculate</button>
+                    </div>
+                </div>
+                <div class="col" style="">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Round</span>
+                        </div>
+                        <input type="text" id="round-num" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <div class="input-group" style="margin-bottom: 15px;">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Cards used</span>
+                        </div>
+                        <input type="text" id="cards-used" aria-label="total cards" class="form-control">
+                        <input type="text" aria-label="previous energy" class="form-control" placeholder="Scratch">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Total cards</span>
+                        </div>
+                        <input type="text" id="cards-left" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <center>
+        <p style="color:#fff;font-size: 22px;">(c) Jb Regore || DoomBurgerGuild</p>
+    </center>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="./jquery-3.5.1.min.js"></script>
+<script>
+    var cards = 0;
+
+
+    var frontline1stcard = 0;
+    var frontline2ndcard = 0;
+    var frontline3rdcard = 0;
+    var frontline4thcard = 0;
+
+    var midline1stcard = 0;
+    var midline2ndcard = 0;
+    var midline3rdcard = 0;
+    var midline4thcard = 0;
+
+    var backline1stcard = 0;
+    var backline2ndcard = 0;
+    var backline3rdcard = 0;
+    var backline4thcard = 0;
+
+
+
+    $(document).on('click', '#calculate', function(e) {
+        e.preventDefault();
+        // alert("gago")
+        if ($("#round-num").val() === "1") {
+            cards += 6;
+            cards = cards - parseInt($("#cards-used").val());
+            $("#cards-left").val(cards);
+        } else {
+            cards += 3;
+            cards = cards - parseInt($("#cards-used").val());
+            $("#cards-left").val(cards);
+        }
+    });
+
+
+    //frontline
+    function frontlineFirstCard(checkbox) {
+        if (checkbox.checked == true) {
+            frontline1stcard++;
+            $("#f_1st_card").text(frontline1stcard);
+        } else {
+            frontline1stcard--;
+            $("#f_1st_card").text(frontline1stcard);
+        }
+    }
+
+    function frontlineSecondCard(checkbox) {
+        if (checkbox.checked == true) {
+            frontline2ndcard++;
+            $("#f_2nd_card").text(frontline2ndcard);
+        } else {
+            frontline2ndcard--;
+            $("#f_2nd_card").text(frontline2ndcard);
+        }
+    }
+
+    function frontlineThirdCard(checkbox) {
+        if (checkbox.checked == true) {
+            frontline3rdcard++;
+            $("#f_3rd_card").text(frontline3rdcard);
+        } else {
+            frontline3rdcard--;
+            $("#f_3rd_card").text(frontline3rdcard);
+        }
+    }
+
+    function frontlineFourthCard(checkbox) {
+        if (checkbox.checked == true) {
+            frontline4thcard++;
+            $("#f_4th_card").text(frontline4thcard);
+        } else {
+            frontline4thcard--;
+            $("#f_4th_card").text(frontline4thcard);
+        }
+    }
+
+
+    //midline
+    function midlineFirstCard(checkbox) {
+        if (checkbox.checked == true) {
+            midline1stcard++;
+            $("#m_1st_card").text(midline1stcard);
+        } else {
+            midline1stcard--;
+            $("#m_1st_card").text(midline1stcard);
+        }
+    }
+
+    function midlineSecondCard(checkbox) {
+        if (checkbox.checked == true) {
+            midline2ndcard++;
+            $("#m_2nd_card").text(midline2ndcard);
+        } else {
+            midline2ndcard--;
+            $("#m_2nd_card").text(midline2ndcard);
+        }
+    }
+
+    function midlineThirdCard(checkbox) {
+        if (checkbox.checked == true) {
+            midline3rdcard++;
+            $("#m_3rd_card").text(midline3rdcard);
+        } else {
+            midline3rdcard--;
+            $("#m_3rd_card").text(midline3rdcard);
+        }
+    }
+
+    function midlineFourthCard(checkbox) {
+        if (checkbox.checked == true) {
+            midline4thcard++;
+            $("#m_4th_card").text(midline4thcard);
+        } else {
+            midline4thcard--;
+            $("#m_4th_card").text(midline4thcard);
+        }
+    }
+
+    //backline
+    function backlineFirstCard(checkbox) {
+        if (checkbox.checked == true) {
+            backline1stcard++;
+            $("#b_1st_card").text(backline1stcard);
+        } else {
+            backline1stcard--;
+            $("#b_1st_card").text(backline1stcard);
+        }
+    }
+
+    function backlineSecondCard(checkbox) {
+        if (checkbox.checked == true) {
+            backline2ndcard++;
+            $("#b_2nd_card").text(backline2ndcard);
+        } else {
+            backline2ndcard--;
+            $("#b_2nd_card").text(backline2ndcard);
+        }
+    }
+
+    function backlineThirdCard(checkbox) {
+        if (checkbox.checked == true) {
+            backline3rdcard++;
+            $("#b_3rd_card").text(backline3rdcard);
+        } else {
+            backline3rdcard--;
+            $("#b_3rd_card").text(backline3rdcard);
+        }
+    }
+
+    function backlineFourthCard(checkbox) {
+        if (checkbox.checked == true) {
+            backline4thcard++;
+            $("#b_4th_card").text(backline4thcard);
+        } else {
+            backline4thcard--;
+            $("#b_4th_card").text(backline4thcard);
+        }
+    }
+</script>
+
+</html>
